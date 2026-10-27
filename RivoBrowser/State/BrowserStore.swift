@@ -19,9 +19,10 @@ final class BrowserStore: ObservableObject {
 
     init() {
         searchHistory = Self.stubHistory()
-        let first = BrowserTab()
-        tabs = [first]
-        activeTabID = first.id
+        // Seed a few tabs so the App Switcher–style carousel is reviewable.
+        let stubs = Self.stubTabs()
+        tabs = stubs
+        activeTabID = stubs.first?.id
         bindEngine()
         // Launch: New Tab + keyboard ready.
         requestSearchFocus()
@@ -158,6 +159,20 @@ final class BrowserStore: ObservableObject {
                 query: "WKWebView browser tips",
                 urlString: "https://www.google.com/search?q=WKWebView+browser+tips",
                 visitedAt: Date().addingTimeInterval(-14_400)
+            )
+        ]
+    }
+
+    private static func stubTabs() -> [BrowserTab] {
+        [
+            BrowserTab(title: "New Tab", urlString: ""),
+            BrowserTab(
+                title: "Arc Search alternatives",
+                urlString: "https://www.google.com/search?q=Arc+Search+alternatives"
+            ),
+            BrowserTab(
+                title: "apple.com",
+                urlString: "https://www.apple.com"
             )
         ]
     }

@@ -37,7 +37,7 @@ RivoBrowser/
 | Surface | Behavior |
 |--------|----------|
 | Launch / New Tab | Search history list + bottom search bar + keyboard |
-| Tabs | Card stack; swipe sideways to close |
+| Tabs | Arc / App Switcher carousel; swipe up to close, tap to open |
 | Settings | Placeholder |
 | Bottom chrome | Only Tabs, New Tab, Settings |
 
